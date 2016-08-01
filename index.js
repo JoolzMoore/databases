@@ -1,27 +1,36 @@
 var development = require('./knexfile').development
 var knex = require ('knex')(development)
 
-knex.insert({
-  name: 'Bob',
-  description: 'fast'
-})
-.into('users')
-.then(getNames)
-.then(showNames)
-.catch(displayError)
 
 
-function getNames(){
-  return knex('users').select('users.name')
-}
 
-function showNames (names){
-  console.log(names)
-}
 
-function displayError (err){
-  console.error(err)
-}
+
+// Insert with functions and Promises
+// knex.insert({
+//   name: 'Bob',
+//   description: 'fast'
+// })
+// .into('users')
+// .then(getNames)
+// .then(showNames)
+// .catch(displayError)
+//
+//
+// function getNames(){
+//   return knex('users').select('users.name')
+// }
+//
+// function showNames (names){
+//   console.log(names)
+// }
+//
+// function displayError (err){
+//   console.error(err)
+// }
+
+
+
 
 // getDataFromServer()
 // .then(doSomethingWithData)
@@ -33,7 +42,7 @@ function displayError (err){
 // }
 
 
-//Insert data
+// Insert data
 // knex('users')
 //   .insert({
 //     'name': 'Wombats',
@@ -43,12 +52,13 @@ function displayError (err){
 
 
 //Find all of the selected properties or objects
-// knex('users')
-//   .select(
-//     'name',
-//     'description'
-//   )
-// .then(console.log)
+var returnedData = knex('users')
+  .select(
+    'name',
+    'description'
+  )
+.then(console.log)
+.catch(console.error)
 
 
 
