@@ -4,6 +4,7 @@
   "description": "database",
   "main": "index.js",
   "scripts": {
+    "start": "node-dev ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "knex": "knex"
   },
@@ -14,11 +15,16 @@
   "author": "us",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.5",
     "knex": "^0.11.9",
     "sqlite": "^2.2.0",
     "sqlite3": "^3.1.4"
   },
   "devDependencies": {
-    "knex": "^0.11.9"
+    "knex": "^0.11.9",
+    "node-dev": "^3.1.3"
   }
 }

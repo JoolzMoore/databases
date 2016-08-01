@@ -1,9 +1,13 @@
+
+
 var express = require('express')
 var hbs = require('express-handlebars')
 var bodyParser = require('body-parser')
 var path = require('path')
 
 var server = express()
+
+module.exports = server
 
 server.use(bodyParser.urlencoded())
 
@@ -24,11 +28,15 @@ server.set('view engine', 'hbs')
 server.set('views', path.join(__dirname, 'views'))
 
 
-// routes
+
+
+
+// ROUTES
+
+server.get('/', function (req, res) {
+  res.render(path.join(__dirname, '../views', 'index'), data)
+})
+
 // server.get('/greetings', function (req, res) {
 //   res.sendFile(path.join(__dirname, '../views'))
-// })
-
-// server.get('/', function (req, res) {
-//   res.render(path.join(__dirname, '../views', 'animal'), data)
 // })
