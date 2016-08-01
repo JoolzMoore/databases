@@ -1,6 +1,38 @@
 var development = require('./knexfile').development
 var knex = require ('knex')(development)
 
+knex.insert({
+  name: 'Bob',
+  description: 'fast'
+})
+.into('users')
+.then(getNames)
+.then(showNames)
+.catch(displayError)
+
+
+function getNames(){
+  return knex('users').select('users.name')
+}
+
+function showNames (names){
+  console.log(names)
+}
+
+function displayError (err){
+  console.error(err)
+}
+
+// getDataFromServer()
+// .then(doSomethingWithData)
+// .catch(handleError)
+//
+// function doSomething (data){
+// }
+// function handleError(err){
+// }
+
+
 //Insert data
 // knex('users')
 //   .insert({
@@ -44,3 +76,8 @@ var knex = require ('knex')(development)
 //   .where('id', '>', 10)
 //   .del()
 //   .then(console.log)
+
+
+// Joining two tables
+// knex.select('*').from('users').leftJoin('table2', 'users.id', 'users.description')
+// .then(console.log)
